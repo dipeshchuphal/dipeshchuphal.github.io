@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dipesh Singh Chuphal — Hydrology & Climate Researcher</title>
+<meta name="description" content="Dipesh Singh Chuphal is a PhD scholar (PMRF) at the Water and Climate Lab, IIT Gandhinagar, working on hydrological modeling, climate extremes, and water security in India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d2535;
+  --ink-soft:#1d3a4d;
+  --slate:#4d6675;
+  --river:#15648f;
+  --river-deep:#0e4e72;
+  --mist:#dfeaf1;
+  --mist-light:#eef4f8;
+  --paper:#fbfcfd;
+  --gold:#a87c1f;
+  --line:#cfdde6;
+  --maxw:1060px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font-family:'Public Sans',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--mist);color:var(--ink)}
+a{color:var(--river);text-decoration:none}
+a:hover{color:var(--river-deep)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--river);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,252,253,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.nav-name{
+  font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;
+  color:var(--ink);letter-spacing:.01em;
+}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{
+  font-size:.82rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--slate);
+}
+.nav-links a:hover{color:var(--river)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--ink)}
+
+/* ---------- hero ---------- */
+header{
+  position:relative;
+  background:linear-gradient(180deg,var(--mist-light) 0%,var(--paper) 100%);
+  overflow:hidden;
+}
+.hero{
+  position:relative;
+  max-width:var(--maxw);margin:0 auto;padding:84px 28px 110px;
+  display:grid;grid-template-columns:1fr 300px;gap:64px;align-items:center;
+}
+.hero-eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--river);margin-bottom:18px;
+}
+h1{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:clamp(2.5rem,5.4vw,3.7rem);
+  line-height:1.08;letter-spacing:-.015em;margin-bottom:22px;
+}
+.hero-sub{
+  font-size:1.12rem;color:var(--slate);max-width:34em;margin-bottom:14px;
+}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-affil{
+  font-size:.95rem;color:var(--slate);margin-bottom:32px;
+}
+.hero-links{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.85rem;font-weight:600;letter-spacing:.03em;
+  padding:11px 20px;border-radius:3px;border:1px solid var(--river);
+  transition:background .18s,color .18s;
+}
+.btn-solid{background:var(--river);color:#fff}
+.btn-solid:hover{background:var(--river-deep);color:#fff}
+.btn-ghost{color:var(--river)}
+.btn-ghost:hover{background:var(--mist);color:var(--river-deep)}
+.hero-photo{position:relative}
+.hero-photo img{
+  width:300px;height:300px;border-radius:50%;object-fit:cover;
+  border:6px solid #fff;
+  box-shadow:0 14px 44px rgba(13,37,53,.16);
+  display:block;
+}
+.hero-photo::after{
+  content:"";position:absolute;inset:-14px;border-radius:50%;
+  border:1px solid var(--line);z-index:-1;
+}
+/* hydrograph signature */
+.hydrograph{
+  position:absolute;left:0;right:0;bottom:0;width:100%;height:90px;
+  display:block;pointer-events:none;
+}
+.hydrograph path{
+  fill:none;stroke:var(--river);stroke-width:1.6;opacity:.45;
+  stroke-dasharray:2400;stroke-dashoffset:2400;
+  animation:flow 2.6s ease-out forwards;
+}
+.hydrograph .baseline{stroke:var(--line);stroke-width:1;opacity:1;stroke-dasharray:none;animation:none}
+@keyframes flow{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hydrograph path{animation:none;stroke-dashoffset:0}
+  .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+}
+
+/* ---------- sections ---------- */
+section{padding:84px 0}
+section:nth-of-type(even){background:var(--mist-light)}
+.sec-head{margin-bottom:46px}
+.sec-label{
+  font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--river);display:block;margin-bottom:10px;
+}
+h2{
+  font-family:'Fraunces',serif;font-weight:500;font-size:2rem;
+  letter-spacing:-.01em;line-height:1.15;
+}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:56px;align-items:start}
+.about-text p{margin-bottom:18px;color:var(--ink-soft)}
+.about-side{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:28px 26px;
+}
+.about-side h3{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--slate);margin-bottom:16px;font-weight:500;
+}
+.interest-list{list-style:none}
+.interest-list li{
+  padding:9px 0;border-bottom:1px solid var(--mist);
+  font-size:.95rem;font-weight:500;
+}
+.interest-list li:last-child{border-bottom:none}
+.about-photo{margin-top:26px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.about-photo img{width:100%;display:block}
+.about-photo figcaption{
+  font-size:.78rem;color:var(--slate);padding:10px 14px;background:#fff;
+}
+
+/* research projects */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.proj{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:28px;display:flex;flex-direction:column;gap:10px;
+  transition:box-shadow .2s,transform .2s;
+}
+.proj:hover{box-shadow:0 10px 30px rgba(13,37,53,.09);transform:translateY(-2px)}
+.proj h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;line-height:1.3}
+.proj p{font-size:.93rem;color:var(--slate);flex:1}
+.proj a.proj-link{
+  font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.proj a.proj-link::after{content:"→";transition:transform .18s}
+.proj a.proj-link:hover::after{transform:translateX(3px)}
+.proj-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--river);
+}
+
+/* publications */
+.pub-year{
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--gold);
+  letter-spacing:.12em;margin:34px 0 6px;font-weight:500;
+}
+.pub-year:first-of-type{margin-top:0}
+.pub{
+  border-left:2px solid var(--line);
+  padding:14px 0 14px 22px;margin-left:4px;
+  transition:border-color .2s;
+}
+.pub:hover{border-color:var(--river)}
+.pub-title{font-weight:600;font-size:1rem;line-height:1.45;color:var(--ink)}
+.pub-meta{font-size:.88rem;color:var(--slate);margin-top:3px}
+.pub-meta em{font-style:italic}
+.pub-doi{
+  font-family:'IBM Plex Mono',monospace;font-size:.76rem;margin-top:4px;display:inline-block;
+}
+.pub-note{
+  display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--gold);
+  border:1px solid currentColor;border-radius:3px;padding:1px 7px;margin-left:8px;
+  vertical-align:2px;
+}
+.pubs-more{margin-top:34px;font-size:.92rem}
+
+/* skills */
+.skill-group{margin-top:22px}
+.skill-group h4{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--slate);font-weight:500;margin-bottom:10px;
+}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{
+  font-size:.8rem;font-weight:500;color:var(--ink-soft);
+  background:var(--mist-light);border:1px solid var(--line);
+  border-radius:3px;padding:4px 10px;
+}
+
+/* media coverage */
+.media-item{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:24px 26px;margin-bottom:18px;
+}
+.media-item h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;line-height:1.35;margin-bottom:4px}
+.media-item .media-study{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;
+}
+.media-outlets{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;list-style:none}
+.media-outlets a{
+  font-size:.82rem;font-weight:600;
+  background:var(--mist-light);border:1px solid var(--line);border-radius:3px;
+  padding:5px 12px;display:inline-block;transition:background .15s,border-color .15s;
+}
+.media-outlets a:hover{background:var(--mist);border-color:var(--river)}
+
+/* conferences */
+.conf-list{list-style:none}
+.conf-list li{
+  display:grid;grid-template-columns:150px 1fr;gap:0 26px;
+  padding:16px 0;border-bottom:1px solid var(--line);font-size:.95rem;
+}
+.conf-list li:last-child{border-bottom:none}
+.conf-venue{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--river);
+  padding-top:3px;
+}
+.conf-list p{color:var(--ink-soft)}
+.conf-list p em{color:var(--slate);font-style:italic;font-size:.88rem}
+@media (max-width:880px){
+  .conf-list li{grid-template-columns:1fr;gap:3px}
+}
+
+/* awards */
+.award-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.award-list li{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:20px 22px;font-size:.94rem;display:flex;gap:14px;align-items:flex-start;
+}
+.award-list .mark{
+  flex:none;width:8px;height:8px;border-radius:50%;
+  background:var(--gold);margin-top:8px;
+}
+.award-list strong{display:block;font-weight:600;margin-bottom:2px}
+.award-list span.detail{color:var(--slate);font-size:.88rem}
+
+/* education */
+.edu{display:grid;grid-template-columns:130px 1fr;gap:0 30px;padding:22px 0;border-bottom:1px solid var(--line)}
+.edu:last-child{border-bottom:none}
+.edu-years{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--river);padding-top:3px}
+.edu h3{font-size:1.05rem;font-weight:600}
+.edu p{color:var(--slate);font-size:.93rem}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start}
+.contact-grid p{color:var(--ink-soft);margin-bottom:22px;max-width:36em}
+.contact-links{list-style:none}
+.contact-links li{
+  display:flex;align-items:baseline;gap:14px;
+  padding:12px 0;border-bottom:1px solid var(--mist);font-size:.95rem;
+}
+.contact-links li:last-child{border-bottom:none}
+.contact-links .k{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--slate);flex:none;width:84px;
+}
+footer{
+  border-top:1px solid var(--line);padding:30px 0;
+  font-size:.82rem;color:var(--slate);
+}
+.foot-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ---------- responsive ---------- */
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr;padding:56px 28px 96px;gap:40px}
+  .hero-photo{order:-1}
+  .hero-photo img{width:200px;height:200px}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .proj-grid,.award-list{grid-template-columns:1fr}
+  .edu{grid-template-columns:1fr;gap:4px}
+  .nav-links{
+    display:none;position:absolute;top:64px;left:0;right:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    flex-direction:column;gap:0;padding:8px 0;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:13px 28px}
+  .nav-toggle{display:block}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Dipesh Singh Chuphal</span>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#conferences">Conferences</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">PhD Scholar · Prime Minister's Research Fellow</p>
+      <h1>Understanding water in a warming climate.</h1>
+      <p class="hero-sub">I study <strong>hydrological modeling, climate extremes, and remote sensing</strong> to understand how climate change is reshaping India's rivers, droughts, floods, and water security.</p>
+      <p class="hero-affil">Water and Climate Lab, Department of Civil Engineering<br>Indian Institute of Technology (IIT) Gandhinagar, India</p>
+      <div class="hero-links">
+        <a class="btn btn-solid" href="https://scholar.google.com/citations?user=pBwApCAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn btn-ghost" href="https://orcid.org/0000-0002-0662-2906" target="_blank" rel="noopener">ORCID</a>
+        <a class="btn btn-ghost" href="https://vmishra.people.iitgn.ac.in/water&climate/#/people/Dipesh%20Singh%20Chuphal" target="_blank" rel="noopener">Lab Profile</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="profile.jpg" alt="Portrait of Dipesh Singh Chuphal">
+    </div>
+  </div>
+  <svg class="hydrograph" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <line class="baseline" x1="0" y1="78" x2="1440" y2="78"/>
+    <path d="M0,72 C40,70 70,60 100,52 C130,44 150,20 175,16 C200,12 220,40 250,50 C280,60 310,66 340,62 C370,58 390,34 420,28 C450,22 470,10 495,12 C520,14 545,44 575,54 C605,64 640,68 675,64 C710,60 730,38 760,30 C790,22 815,18 840,24 C865,30 890,52 920,58 C950,64 985,66 1015,60 C1045,54 1065,28 1090,22 C1115,16 1140,14 1165,20 C1190,26 1215,48 1245,56 C1275,64 1310,68 1345,64 C1380,60 1410,52 1440,46"/>
+  </svg>
+</header>
+
+<main>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">01 — About</span>
+      <h2>From river basins to research that reaches people</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I am a PhD researcher in Civil Engineering at IIT Gandhinagar (thesis submitted, June 2026), working with Prof. Vimal Mishra at the Water and Climate Lab. My research combines hydrological modeling, paleoclimate reconstructions, climate projections, and remote sensing to understand long-term changes in India's water cycle, and what they mean for the hundreds of millions of people who depend on it.</p>
+        <p>My work on the Ganga River, published in <em>PNAS</em>, showed that its recent drying is unprecedented over the last 1,300 years and was featured in <em>Nature India</em>. Beyond peer-reviewed research, I develop operational hydroclimatic tools, including drought atlases, flood forecasting systems, and hydro-meteorological decision-support platforms, that bridge scientific research and real-world applications. These tools provide actionable information to farmers, water-resource managers, and disaster-response agencies, enabling informed decisions for climate adaptation, water management, and risk reduction.</p>
+        <p>I was selected as a Prime Minister's Research Fellow (PMRF, direct entry) and received the Climate Change Impact Study award from the Government of Gujarat for contributions to climate-change impact assessment and hydroclimatic research in India.</p>
+      </div>
+      <aside class="about-side reveal">
+        <h3>Research interests</h3>
+        <ul class="interest-list">
+          <li>Hydrological modelling</li>
+          <li>Paleo-hydrological modelling</li>
+          <li>Climate change impacts</li>
+          <li>Human influences on hydrology</li>
+          <li>Climate extremes</li>
+          <li>Remote sensing</li>
+        </ul>
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <ul class="chips"><li>Python</li><li>R</li><li>MATLAB</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>Hydrological models</h4>
+          <ul class="chips"><li>VIC</li><li>H08</li><li>CWatM</li><li>SPHY</li><li>mizuRoute</li><li>CaMa-Flood</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <ul class="chips"><li>QGIS</li><li>ArcGIS</li><li>HEC-RAS</li><li>ENVI</li><li>CDO</li><li>AutoCAD</li><li>Google Earth Engine</li></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">02 — Research &amp; Operational Projects</span>
+      <h2>Science built into working tools</h2>
+    </div>
+    <div class="proj-grid">
+      <article class="proj reveal">
+        <span class="proj-tag">Drought monitoring</span>
+        <h3>Drought Atlas of India</h3>
+        <p>Led the development of a national portal for visualisation, monitoring, and assessment of drought hazards across India, built on 120 years of reconstructed data (1901–2020).</p>
+        <a class="proj-link" href="https://indiadroughtatlas.in/" target="_blank" rel="noopener">indiadroughtatlas.in</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Climate adaptation</span>
+        <h3>ClimateAdapt: Real-time monitoring &amp; forecasting</h3>
+        <p>Contributed to a real-time hydro-meteorological monitoring and forecasting platform and mobile app for disaster-prone villages in India, in collaboration with IndusInd Bank and UNICEF, supporting climate-risk management and agricultural decisions for farmers.</p>
+        <a class="proj-link" href="https://climateadapt.in/" target="_blank" rel="noopener">climateadapt.in</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Flood forecasting</span>
+        <h3>Brahmaputra flood-inundation forecasting</h3>
+        <p>Contributed to an experimental flood-inundation forecasting system for the Brahmaputra River basin, one of the most flood-prone regions in South Asia.</p>
+        <a class="proj-link" href="https://sites.google.com/iitgn.ac.in/brahmaputra-forecast-portal/home" target="_blank" rel="noopener">Forecast portal</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Open data</span>
+        <h3>Streamflow datasets for the Indian subcontinent</h3>
+        <p>Developed long-term, spatially continuous streamflow datasets across Indian sub-continental river basins (1951–2021), openly published for the research community.</p>
+        <a class="proj-link" href="https://doi.org/10.5281/ZENODO.8004633" target="_blank" rel="noopener">Zenodo dataset</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Operational hydrology</span>
+        <h3>Hydrological outlook for Karnataka</h3>
+        <p>Contributed to the experimental real-time hydro-meteorological monitoring and forecast portal for Karnataka State, developed with ACIWRM.</p>
+        <a class="proj-link" href="https://sites.google.com/iitgn.ac.in/aciwrmportal/home" target="_blank" rel="noopener">ACIWRM portal</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Drought monitoring</span>
+        <h3>India Drought Monitor</h3>
+        <p>Contributed to the lab's portal showing India's real-time drought conditions and forecasts, supporting near real-time drought assessment for planning and management.</p>
+        <a class="proj-link" href="https://indiadroughtmonitor.in/" target="_blank" rel="noopener">indiadroughtmonitor.in</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Open data</span>
+        <h3>INDmet: High-resolution meteorological dataset</h3>
+        <p>A 0.05° daily precipitation and maximum/minimum temperature dataset for India (1981–2024), developed using IMD observations, CHIRPS, and ERA5-Land, openly available on Zenodo.</p>
+        <a class="proj-link" href="https://zenodo.org/records/15430548" target="_blank" rel="noopener">Zenodo dataset</a>
+      </article>
+      <article class="proj reveal">
+        <span class="proj-tag">Open data</span>
+        <h3>Gridded root-zone soil moisture for India</h3>
+        <p>Developed a long-term gridded root-zone soil moisture product for India (1981–2024), published in <em>Scientific Data</em> to support agricultural and drought applications.</p>
+        <a class="proj-link" href="https://doi.org/10.1038/s41597-026-06940-x" target="_blank" rel="noopener">Scientific Data</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">03 — Selected Publications</span>
+      <h2>Peer-reviewed research</h2>
+    </div>
+    <div class="reveal">
+      <p class="pub-year">2026</p>
+      <article class="pub">
+        <p class="pub-title">Observation-constrained projections reveal robust streamflow increases in Indian rivers</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, &amp; Mishra, V. — <em>Earth's Future</em>, 14, e2025EF007928</p>
+        <a class="pub-doi" href="https://doi.org/10.1029/2025EF007928" target="_blank" rel="noopener">doi:10.1029/2025EF007928</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Emergence of uncompensable heat stress during monsoon season in India</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, Kong, Q., Huber, M., &amp; Mishra, V. — <em>AGU Advances</em>, 7, e2025AV001945</p>
+        <a class="pub-doi" href="https://doi.org/10.1029/2025AV001945" target="_blank" rel="noopener">doi:10.1029/2025AV001945</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Development of gridded root-zone soil moisture product for India, 1981–2024</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, Abhishek, Kushwaha, A. P., Vangala, G., &amp; Mishra, V. — <em>Scientific Data</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1038/s41597-026-06940-x" target="_blank" rel="noopener">doi:10.1038/s41597-026-06940-x</a>
+      </article>
+
+      <p class="pub-year">2025</p>
+      <article class="pub">
+        <p class="pub-title">Recent drying of the Ganga River is unprecedented in the last 1,300 years <span class="pub-note">Featured in Nature India</span></p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, Thirumalai, K., &amp; Mishra, V. — <em>Proceedings of the National Academy of Sciences (PNAS)</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1073/pnas.2424613122" target="_blank" rel="noopener">doi:10.1073/pnas.2424613122</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Increased drought synchronicity in Indian rivers under anthropogenic warming</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, &amp; Mishra, V. — <em>AGU Advances</em>, 6(5)</p>
+        <a class="pub-doi" href="https://doi.org/10.1029/2025AV001850" target="_blank" rel="noopener">doi:10.1029/2025AV001850</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Multi-day extreme precipitation caused major floods in India during summer monsoon of 2024</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, Malik, I., Singh, R., Vangala, G., Niranjannaik, M., Vegad, U., et al. &amp; Mishra, V. — <em>Earth's Future</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1029/2024EF005497" target="_blank" rel="noopener">doi:10.1029/2024EF005497</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">High-impact and low-likelihood compound hot and dry extremes in India</p>
+        <p class="pub-meta">Malik, I., <strong>Chuphal, D. S.</strong>, &amp; Mishra, V. — <em>Journal of Climate</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1175/JCLI-D-25-0277.1" target="_blank" rel="noopener">doi:10.1175/JCLI-D-25-0277.1</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Migrant laborers in India face increased heat stress driven by climate warming and ENSO variability</p>
+        <p class="pub-meta">Mishra, V., <strong>Chuphal, D. S.</strong>, Kong, Q., Raymond, C., Parsons, L., Kumar, R., et al. &amp; Huber, M. — <em>Earth's Future</em>, 13(11)</p>
+        <a class="pub-doi" href="https://doi.org/10.1029/2025EF006167" target="_blank" rel="noopener">doi:10.1029/2025EF006167</a>
+      </article>
+
+      <p class="pub-year">2024</p>
+      <article class="pub">
+        <p class="pub-title">Drought Atlas of India, 1901–2020</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, Kushwaha, A. P., Aadhar, S., &amp; Mishra, V. — <em>Scientific Data</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1038/s41597-023-02856-y" target="_blank" rel="noopener">doi:10.1038/s41597-023-02856-y</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Drivers, changes, and impacts of hydrological extremes in India: A review</p>
+        <p class="pub-meta">Mishra, V., JS, N., Dangar, S., <strong>Chuphal, D. S.</strong>, &amp; Vegad, U. — <em>WIREs Water</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1002/wat2.1742" target="_blank" rel="noopener">doi:10.1002/wat2.1742</a>
+      </article>
+
+      <p class="pub-year">2023</p>
+      <article class="pub">
+        <p class="pub-title">Hydrological model-based streamflow reconstruction for Indian sub-continental river basins, 1951–2021</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, &amp; Mishra, V. — <em>Scientific Data</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1038/s41597-023-02618-w" target="_blank" rel="noopener">doi:10.1038/s41597-023-02618-w</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Increased hydropower but with an elevated risk of reservoir operations in India under the warming climate</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, &amp; Mishra, V. — <em>iScience</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1016/j.isci.2023.105986" target="_blank" rel="noopener">doi:10.1016/j.isci.2023.105986</a>
+      </article>
+      <article class="pub">
+        <p class="pub-title">Was the extreme rainfall that caused the August 2022 flood in Pakistan predictable?</p>
+        <p class="pub-meta">Malik, I., <strong>Chuphal, D. S.</strong>, Vegad, U., &amp; Mishra, V. — <em>Environmental Research: Climate</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1088/2752-5295/acfa1a" target="_blank" rel="noopener">doi:10.1088/2752-5295/acfa1a</a>
+      </article>
+
+      <p class="pub-year">2022</p>
+      <article class="pub">
+        <p class="pub-title">The Pakistan flood of August 2022: causes and implications</p>
+        <p class="pub-meta">Nanditha, J. S., Kushwaha, A. P., Singh, R., Malik, I., Solanki, H., <strong>Chuphal, D. S.</strong>, et al. &amp; Vegad, U. — <em>Earth's Future</em></p>
+        <a class="pub-doi" href="https://doi.org/10.1029/2022EF003230" target="_blank" rel="noopener">doi:10.1029/2022EF003230</a>
+      </article>
+
+      <p class="pub-year">Under review / In revision</p>
+      <article class="pub">
+        <p class="pub-title">Water withdrawals, not climate variability, disconnect nine-tenths of India's rivers</p>
+        <p class="pub-meta"><strong>Chuphal, D. S.</strong>, &amp; Mishra, V. — <em>Under review</em></p>
+      </article>
+      <article class="pub">
+        <p class="pub-title">INDmet: A high-resolution (0.05°) daily precipitation and temperature dataset for India</p>
+        <p class="pub-meta">Kushwaha, A. P., <strong>Chuphal, D. S.</strong>, Singh, R., &amp; Mishra, V. — <em>Scientific Data</em> (in revision)</p>
+      </article>
+
+      <p class="pubs-more">Full publication list and citation metrics on <a href="https://scholar.google.com/citations?user=pBwApCAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="media">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">04 — Media Coverage</span>
+      <h2>Research in the news</h2>
+    </div>
+    <div class="reveal">
+      <div class="media-item">
+        <span class="media-study">PNAS · 2025</span>
+        <h3>Recent drying of the Ganga River is unprecedented in the last 1,300 years</h3>
+        <ul class="media-outlets">
+          <li><a href="https://www.nature.com/articles/d44151-025-00180-5" target="_blank" rel="noopener">Nature India</a></li>
+          <li><a href="https://www.thehindu.com/sci-tech/energy-and-environment/study-finds-the-ganga-river-is-drying-faster-than-in-1300-years/article70084135.ece" target="_blank" rel="noopener">The Hindu</a></li>
+          <li><a href="https://theconversation.com/the-ganges-river-is-drying-faster-than-ever-heres-what-it-means-for-the-region-and-the-world-265891" target="_blank" rel="noopener">The Conversation</a></li>
+          <li><a href="https://phys.org/news/2025-09-ganges-river-drying-unprecedented.html" target="_blank" rel="noopener">Phys.org</a></li>
+          <li><a href="https://www.ndtv.com/india-news/drying-of-the-ganga-in-recent-decades-unprecedented-in-past-millennium-study-9334979" target="_blank" rel="noopener">NDTV</a></li>
+          <li><a href="https://m.economictimes.com/news/india/gangas-worst-dry-spell-in-1300-years-a-crisis-for-600-million-people-warns-iit-study/articleshow/124149352.cms" target="_blank" rel="noopener">The Economic Times</a></li>
+          <li><a href="https://pnas.altmetric.com/details/181611910" target="_blank" rel="noopener">Full coverage on Altmetric →</a></li>
+        </ul>
+      </div>
+      <div class="media-item">
+        <span class="media-study">AGU Advances · 2026</span>
+        <h3>Emergence of uncompensable heat stress during monsoon season in India</h3>
+        <ul class="media-outlets">
+          <li><a href="https://www.ndtv.com/health/indias-monsoon-may-no-longer-bring-relief-from-heat-study-11617889" target="_blank" rel="noopener">NDTV</a></li>
+          <li><a href="https://m.economictimes.com/news/india/heat-humidity-of-indias-monsoon-could-extend-summer-heat-stress-as-climate-warms-recent-study/articleshow/131582684.cms" target="_blank" rel="noopener">The Economic Times</a></li>
+          <li><a href="https://www.business-standard.com/india-news/heat-humidity-during-india-s-monsoon-may-extend-summer-heat-stress-study-126060800454_1.html" target="_blank" rel="noopener">Business Standard</a></li>
+          <li><a href="https://www.nationalheraldindia.com/environment/monsoon-heat-humidity-could-extend-indias-dangerous-hot-season-study" target="_blank" rel="noopener">National Herald</a></li>
+        </ul>
+      </div>
+      <div class="media-item">
+        <span class="media-study">Earth's Future · 2026</span>
+        <h3>Observation-constrained projections reveal robust streamflow increases in Indian rivers</h3>
+        <ul class="media-outlets">
+          <li><a href="https://www.thehindu.com/sci-tech/energy-and-environment/climate-study-shows-drying-of-cauvery-to-persist-until-2050-even-as-other-rivers-swell/article70785157.ece" target="_blank" rel="noopener">The Hindu</a></li>
+        </ul>
+      </div>
+      <div class="media-item">
+        <span class="media-study">AGU Advances · 2025</span>
+        <h3>Increased drought synchronicity in Indian rivers under anthropogenic warming</h3>
+        <ul class="media-outlets">
+          <li><a href="https://eos.org/research-spotlights/droughts-sync-up-as-the-climate-changes" target="_blank" rel="noopener">Eos (AGU)</a></li>
+          <li><a href="https://phys.org/news/2025-09-droughts-sync-india-major-rivers.html" target="_blank" rel="noopener">Phys.org</a></li>
+          <li><a href="https://www.business-standard.com/india-news/droughts-across-india-s-rivers-occurring-in-sync-amid-climate-change-study-125091601076_1.html" target="_blank" rel="noopener">Business Standard</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conferences">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">05 — Conference Presentations</span>
+      <h2>Talks &amp; posters</h2>
+    </div>
+    <ul class="conf-list reveal">
+      <li><span class="conf-venue">EGU 2026 · Vienna</span><p>Unprecedented drying of the Ganga River over the past 1,300 years <em>(EGU26-16194)</em></p></li>
+      <li><span class="conf-venue">AGU 2025</span><p>Anthropogenic climate change intensifies synchronous droughts across Indian rivers</p></li>
+      <li><span class="conf-venue">EGU 2025 · Vienna</span><p>Multi-day extreme precipitation caused major floods in India during summer monsoon of 2024</p></li>
+      <li><span class="conf-venue">EGU 2025 · Vienna</span><p>High-impact climate extremes in India <em>(with V. Mishra et al., EGU25-14675)</em></p></li>
+      <li><span class="conf-venue">AGU 2024</span><p>On the observed and projected district-level humid heat risk in India <em>(A51U-1978)</em></p></li>
+      <li><span class="conf-venue">AGU 2024</span><p>Multi-model-based probabilistic flood forecast system for the Brahmaputra river basin <em>(with V. Mishra et al.)</em></p></li>
+      <li><span class="conf-venue">AGU 2023</span><p>Impact of glacier and snow cover changes on streamflow variability in Himalayan river basins <em>(C11E-1087)</em></p></li>
+      <li><span class="conf-venue">EGU 2023</span><p>Streamflow projections for Indian subcontinent river basins <em>(EGU23-14505)</em></p></li>
+      <li><span class="conf-venue">AGU 2022</span><p>The Pakistan flood of August 2022: causes and implications <em>(with Nanditha J. S. et al.)</em></p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">06 — Awards &amp; Honors</span>
+      <h2>Recognition</h2>
+    </div>
+    <ul class="award-list reveal">
+      <li><span class="mark"></span><div><strong>Prime Minister's Research Fellowship (PMRF)</strong><span class="detail">Direct entry, Cycle 9 — for pursuing a PhD at IIT Gandhinagar</span></div></li>
+      <li><span class="mark"></span><div><strong>Climate Change Impact Study Award</strong><span class="detail">Climate Change Department, Government of Gujarat — for contributions to climate-change impact assessment and hydroclimatic research in India</span></div></li>
+      <li><span class="mark"></span><div><strong>Featured in Nature India</strong><span class="detail">For research showing the recent drying of the Ganga River is unprecedented over the last 1,300 years (PNAS)</span></div></li>
+      <li><span class="mark"></span><div><strong>GICEA Gold Medal Award, 2022</strong><span class="detail">Gujarat Institute of Civil Engineers and Architects</span></div></li>
+      <li><span class="mark"></span><div><strong>Gold Medal, M.Tech (Civil Engineering)</strong><span class="detail">IIT Gandhinagar — top of the department</span></div></li>
+      <li><span class="mark"></span><div><strong>ANRF Travel Grant</strong><span class="detail">To attend the EGU General Assembly 2025, Vienna, Austria</span></div></li>
+      <li><span class="mark"></span><div><strong>PMRF Research Grant</strong><span class="detail">To attend five international conferences</span></div></li>
+      <li><span class="mark"></span><div><strong>Director's Fellowship</strong><span class="detail">For pursuing a PhD in Civil Engineering at IIT Gandhinagar</span></div></li>
+      <li><span class="mark"></span><div><strong>GATE 2020 — 95th Percentile</strong><span class="detail">Civil Engineering; 2nd position in the department during undergraduate studies and Vice-Chancellor's scholarship for academics</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">07 — Education</span>
+      <h2>Academic background</h2>
+    </div>
+    <div class="reveal">
+      <div class="edu">
+        <span class="edu-years">2022 — 2026</span>
+        <div>
+          <h3>PhD, Department of Civil Engineering [Thesis Submitted: June 2026] </h3>
+          <p>Indian Institute of Technology Gandhinagar, India · Prime Minister's Research Fellow · CPI 10/10</p>
+        </div>
+      </div>
+      <div class="edu">
+        <span class="edu-years">2020 — 2022</span>
+        <div>
+          <h3>M.Tech, Civil Engineering</h3>
+          <p>Indian Institute of Technology Gandhinagar, India · Gold Medalist · CPI 9.10/10</p>
+        </div>
+      </div>
+      <div class="edu">
+        <span class="edu-years">2016 — 2020</span>
+        <div>
+          <h3>B.Tech, Civil Engineering</h3>
+          <p>Govind Ballabh Pant University of Agriculture and Technology, Pantnagar, India · 79.05%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:24px">
+          <span class="sec-label">08 — Contact</span>
+          <h2>Get in touch</h2>
+        </div>
+        <p>I am open to research collaborations, postdoctoral opportunities, and conversations about hydrology, climate extremes, and water security. The fastest way to reach me is by email.</p>
+        <a class="btn btn-solid" href="mailto:dipeshsc@iitgn.ac.in">Email me</a>
+      </div>
+      <div class="reveal">
+        <ul class="contact-links">
+          <li><span class="k">Email</span><a href="mailto:dipeshsc@iitgn.ac.in">dipeshsc@iitgn.ac.in</a></li>
+          <li><span class="k">Phone</span><a href="tel:+918650217079">+91 86502 17079</a></li>
+          <li><span class="k">Scholar</span><a href="https://scholar.google.com/citations?user=pBwApCAAAAAJ" target="_blank" rel="noopener">Google Scholar profile</a></li>
+          <li><span class="k">ORCID</span><a href="https://orcid.org/0000-0002-0662-2906" target="_blank" rel="noopener">0000-0002-0662-2906</a></li>
+          <li><span class="k">Lab</span><a href="https://vmishra.people.iitgn.ac.in/water&climate/#/people/Dipesh%20Singh%20Chuphal" target="_blank" rel="noopener">Water &amp; Climate Lab, IIT Gandhinagar</a></li>
+          <li><span class="k">Address</span><span>Department of Civil Engineering, IIT Gandhinagar, Palaj, Gujarat 382355, India</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 Dipesh Singh Chuphal</span>
+    <span>Water and Climate Lab · IIT Gandhinagar</span>
+  </div>
+</footer>
+
+<script>
+// mobile nav
+const toggle = document.querySelector('.nav-toggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
